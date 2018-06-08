@@ -68,13 +68,13 @@ try {
     if (isset($preferences['refresh_interval'])) {
         $autoRefresh = $preferences['refresh_interval'];
     }
-    
+
 } catch (Exception $e) {
     echo $e->getMessage() . "<br/>";
     exit;
 }
 
- if ($centreon->user->admin == 0) {
+if ($centreon->user->admin == 0) {
     $access = new CentreonACL($centreon->user->get_id());
     $grouplist = $access->getAccessGroups();
     $grouplistStr = $access->getAccessGroupsString();
@@ -127,8 +127,8 @@ function getUnit($in)
     return $return;
 }
 
-
 $res = $db->query($query);
+
 while ($row = $res->fetchRow()) {
     $row['numLin'] = $numLine;
     while ($row['remaining_space'] >= 1024) {
@@ -144,7 +144,7 @@ while ($row = $res->fetchRow()) {
 }
 
 $template->assign('preferences', $preferences);
-$template->assign('widgetID', $widgetId);
+$template->assign('widgetId', $widgetId);
 $template->assign('preferences', $preferences);
 $template->assign('autoRefresh', $autoRefresh);
 $template->assign('data', $data);
