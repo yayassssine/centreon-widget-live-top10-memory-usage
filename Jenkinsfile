@@ -76,6 +76,9 @@ stage('Deliver sources') {
   }
 }
 
+
+
+
 try {
   stage('Unit tests // RPMs packaging // Sonar analysis') {
     parallel 'unit tests backend centos7': {
